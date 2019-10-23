@@ -28,6 +28,8 @@ namespace IOptionDemo
             }
 
             app.UseRouting();
+
+            app.UseCustomFunctionality();
          
             app.UseEndpoints(endpoints =>
             {
