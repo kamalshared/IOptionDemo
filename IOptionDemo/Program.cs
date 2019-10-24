@@ -18,7 +18,18 @@ namespace IOptionDemo
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                config.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath);
+                config.AddJsonFile("CustomConfig.json", optional: false, reloadOnChange: true); 
+                 
+                config.AddInMemoryCollection(new List<KeyValuePair<string, string>>()
+                {
+                    new KeyValuePair<string, string>("Setting1","Value1"),
+                    new KeyValuePair<string, string>("Setting2","Value2")
+                });
+                config.Build();
+            }).ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
                 });

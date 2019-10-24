@@ -1,0 +1,10 @@
+{
+  "HomeControllerOptions": {
+    "Title": "Welcome to the Home Controller",
+    "DropDown": {
+      "City": true,
+      "State" :  false
+    }
+  }
+
+}

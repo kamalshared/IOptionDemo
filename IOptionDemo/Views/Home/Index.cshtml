@@ -1,2 +1,9 @@
-﻿ 
-<h2>Home controller</h2>
+﻿@using Microsoft.Extensions.Configuration
+@using IOptionDemo.Models
+@inject IConfiguration Configuration
+@model HomeControllerOptions
+<p>@ViewData["Title"] </p>
+
+<h2>Home controller @ViewData["settings"]</h2>
+<p>@Configuration["HomeControllerOptions:Title"]</p>
+<p>@Model.Title</p>

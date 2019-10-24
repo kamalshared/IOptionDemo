@@ -19,21 +19,21 @@ namespace IOptionDemo
         public void ConfigureServices(IServiceCollection services)
         {
             //1. The AddControllers() extension method now does exactly that -it adds the services required to use Web API Controllers, and nothing more.So you get Authorization, Validation, formatters, and CORS
-            services.AddControllers(configure =>
-            {
-                configure.RespectBrowserAcceptHeader = true;
-               // configure.ReturnHttpNotAcceptable = true;
-                configure.InputFormatters
-                .Add(new XmlSerializerInputFormatter(configure));
-                configure.OutputFormatters.Add(new XmlSerializerOutputFormatter());
-                ;
-            });
+            //services.AddControllers(configure =>
+            //{
+            //    configure.RespectBrowserAcceptHeader = true;
+            //    configure.ReturnHttpNotAcceptable = true;
+            //    configure.InputFormatters
+            //    .Add(new XmlSerializerInputFormatter(configure));
+            //    configure.OutputFormatters.Add(new XmlSerializerOutputFormatter());
+            //    ;
+            //});
             //2. this adds the MVC Controller services that are common to both Web API and MVC, but also adds the services required for rendering Razor views.
-                     // services.AddControllersWithViews();
+              services.AddControllersWithViews();
             //3. it does not add the services required for using standard MVC controllers with Razor Views.
-                    //services.AddRazorPages();
+            //services.AddRazorPages();
             //4.If you want to use both MVC and Razor Pages in your app, you should continue to use the AddMvc() extension method.
-                    //services.AddMvc();
+            //services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,8 +53,8 @@ namespace IOptionDemo
             //An endpoint consists of a path pattern, and something to execute when called.
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
-                //endpoints.MapDefaultControllerRoute();
+                //endpoints.MapControllers();
+                endpoints.MapDefaultControllerRoute();
                 //endpoints.MapRazorPages();
                 
                 endpoints.MapGet("/", async context =>
