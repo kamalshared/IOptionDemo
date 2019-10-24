@@ -1,1 +1,10 @@
-﻿
+﻿When configuration settings are isolated by scenario into separate classes, 
+the app adheres to two important software engineering principles:
+
+1) The Interface Segregation Principle (ISP) or Encapsulation – Scenarios (classes) that depend 
+on configuration settings depend only on the configuration settings that they use.
+
+2) Separation of Concerns – Settings for different parts of the app aren't dependent or 
+							coupled to one another.
+
+An options class must be non-abstract with a public parameterless constructor.
